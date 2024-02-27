@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+    <title>NFL Machine Learning Picks</title>
+    <style>
+        .green {color: green}
+        .red {color: red}
+        td {padding: 2px;}
+        td.numbers { width: 40px; text-align: right;}
+        th, td {border: 1px solid black;} 
+        table {margin-bottom: 6px;}
+        th {text-align: center;}
+        td {text-align: center;}
+        h1 {
+            color: green; 
+        }
+
+        tbody tr:nth-child(odd) td {
+            background-color: #555555;
+        }
+
+        .win-percentage {
+            color: red; 
+        }
+
+        .win-percentage.green {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+<main class="container">
+    <h1>NFL StatBets</h1>
+    <h2>Machine Learning Picks Via Fanduel</h2>
+    <table role="grid">
+        <thead>
+        <th>Teams</th>
+        <th>Score</th>
+        <th>Odds</th>
+        <th>O/U</th>
+        <th>Win%</th>
+        <th>Bet</th>
+        </thead>
+        <tbody>
+          <tr>
+              <td>New England Patriots</td>
+              <td class="numbers">24</td>
+              <td class="numbers">-150</td>
+              <td class="numbers">42.5</td>
+              <td class="win-percentage" id="win1">67%</td>
+              <td class="numbers">$75</td>
+          </tr>
+          <tr>
+              <td>Buffalo Bills</td>
+              <td class="numbers">21</td>
+              <td class="numbers">+200</td>
+              <td class="numbers">42.5</td>
+              <td class="win-percentage" id="win2">33%</td>
+              <td class="numbers">$0</td>
+          </tr>
+          <tr>
+              <td>Philladelphia Eagles</td>
+              <td class="numbers">17</td>
+              <td class="numbers">-300</td>
+              <td class="numbers">40</td>
+              <td class="win-percentage" id="win3">90%</td>
+              <td class="numbers">$120</td>
+          </tr>
+          <tr>
+              <td>New York Giants</td>
+              <td class="numbers">3</td>
+              <td class="numbers">+400</td>
+              <td class="numbers">40</td>
+              <td class="win-percentage" id="win4">10%</td>
+              <td class="numbers">$0</td>
+          </tr>
+        </tbody>
+    </table>
+</main>
+
+  <script>
+      function perc2color(perc, min, max) {
+          var base = (max - min);
+          if (base == 0) {
+              perc = 100;
+          } else {
+              perc = (perc - min) / base * 100;
+          }
+          var r, g, b = 0;
+          if (perc < 50) {
+              r = 255;
+              g = Math.round(5.1 * perc);
+          } else {
+              g = 255;
+              r = Math.round(510 - 5.10 * perc);
+          }
+          var h = r * 0x10000 + g * 0x100 + b * 0x1;
+          return '#' + ('000000' + h.toString(16)).slice(-6);
+      }
+
+      // Get the win percentage elements
+      const win1 = document.getElementById('win1');
+      const win2 = document.getElementById('win2');
+      const win3 = document.getElementById('win3');
+      const win4 = document.getElementById('win4');
+
+      // Convert win percentage to number
+      const winPercentage1 = parseInt(win1.textContent);
+      const winPercentage2 = parseInt(win2.textContent);
+      const winPercentage3 = parseInt(win3.textContent);
+      const winPercentage4 = parseInt(win4.textContent);
+
+      // Change color based on win percentage
+      win1.style.color = perc2color(winPercentage1, 0, 100);
+      win2.style.color = perc2color(winPercentage2, 0, 100);
+      win3.style.color = perc2color(winPercentage3, 0, 100);
+      win4.style.color = perc2color(winPercentage4, 0, 100);
+  </script>
+
+
+  
+</body>
+</html>
+        
