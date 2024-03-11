@@ -39,48 +39,68 @@
         <thead>
         <th>Teams</th>
         <th>Score</th>
-        <th>Odds</th>
+        <th>Record%</th>
         <th>O/U</th>
+        <th>Spread</th>
         <th>Win%</th>
         <th>Bet</th>
         </thead>
-        <tbody>
-          <tr>
-              <td>New England Patriots</td>
-              <td class="numbers">24</td>
-              <td class="numbers">-150</td>
-              <td class="numbers">42.5</td>
-              <td class="win-percentage" id="win1">67%</td>
-              <td class="numbers">$75</td>
-          </tr>
-          <tr>
-              <td>Buffalo Bills</td>
-              <td class="numbers">21</td>
-              <td class="numbers">+200</td>
-              <td class="numbers">42.5</td>
-              <td class="win-percentage" id="win2">33%</td>
-              <td class="numbers">$0</td>
-          </tr>
-          <tr>
-              <td>Philladelphia Eagles</td>
-              <td class="numbers">17</td>
-              <td class="numbers">-300</td>
-              <td class="numbers">40</td>
-              <td class="win-percentage" id="win3">90%</td>
-              <td class="numbers">$120</td>
-          </tr>
-          <tr>
-              <td>New York Giants</td>
-              <td class="numbers">3</td>
-              <td class="numbers">+400</td>
-              <td class="numbers">40</td>
-              <td class="win-percentage" id="win4">10%</td>
-              <td class="numbers">$0</td>
-          </tr>
+        <tbody id="table-body">
+          
         </tbody>
     </table>
 </main>
 
+
+  <script>
+    const dataset = [
+        { team: "BAL", score: 17.0, odds: 0.0, overUnder: 33.5, spread: -10.5, winPercentage: 0, bet: 0 },
+      { team: "CHI", score: 6.0, odds: 0.0, overUnder: 33.5, spread: 10.5, winPercentage: 0, bet: 0 },
+        { team: "BAL", score: 31.0, odds: 0.5384615384615384, overUnder: 39.0, spread: -11.0, winPercentage: 0, bet: 0 },
+      { team: "CHI", score: 7.0, odds: 0.38461538461538464, overUnder: 39.0, spread: 11.0, winPercentage: 0, bet: 0 },
+        { team: "BAL", score: 24.0, odds: 0.6, overUnder: 38.5, spread: -6.5, winPercentage: 0, bet: 0 },
+      { team: "CHI", score: 27.0, odds: 0.2, overUnder: 38.5, spread: 6.5, winPercentage: 0, bet: 0 },
+        { team: "BUF", score: 33.0, odds: 0.3333333333333333, overUnder: 46.5, spread: -3.0, winPercentage: 0, bet: 0 },
+      { team: "CHI", score: 27.0, odds: 0.6666666666666666, overUnder: 46.5, spread: 3.0, winPercentage: 0, bet: 0 },
+        { team: "BUF", score: 19.0, odds: 0.0, overUnder: 41.5, spread: -3.0, winPercentage: 0, bet: 0 },
+      { team: "CHI", score: 22.0, odds: 0.5714285714285714, overUnder: 41.5, spread: 3.0, winPercentage: 0, bet: 0 },
+        { team: "BUF", score: 9.0, odds: 0.25, overUnder: 38.0, spread: -10.5, winPercentage: 0, bet: 0 },
+      { team: "CHI", score: 41.0, odds: 0.5714285714285714, overUnder: 38.0, spread: 10.5, winPercentage: 0, bet: 0 },
+        { team: "CIN", score: 0.0, odds: 0.6, overUnder: 36.0, spread: -1.0, winPercentage: 0, bet: 0 },
+      { team: "CHI", score: 24.0, odds: 0.75, overUnder: 36.0, spread: 1.0, winPercentage: 0, bet: 0 },
+        { team: "CIN", score: 45.0, odds: 0.6666666666666666, overUnder: 43.0, spread: -2.0, winPercentage: 0, bet: 0 },
+        { team: "CHI", score: 10.0, odds: 0.6, overUnder: 43.0, spread: 2.0, winPercentage: 0, bet: 0 }
+    ];
+
+  // Function to populate the table
+      function populateTable() {
+          const tableBody = document.getElementById('table-body');
+
+          // Iterate over the dataset and create table rows
+          dataset.forEach(data => {
+              const row = document.createElement('tr');
+
+              // Populate table cells with data
+              row.innerHTML = `
+                  <td>${data.team}</td>
+                  <td class="numbers">${data.score}</td>
+                  <td class="numbers">${data.odds}</td>
+                  <td class="numbers">${data.overUnder}</td>
+                  <td class="numbers">${data.spread}</td>
+                  <td class="win-percentage">${data.winPercentage}%</td>
+                  <td class="numbers">$${data.bet}</td>
+              `;
+
+              // Append the row to the table body
+              tableBody.appendChild(row);
+          });
+      }
+
+      // Call the function to populate the table
+      populateTable();
+  </script>
+
+    
   <script>
       function perc2color(perc, min, max) {
           var base = (max - min);
