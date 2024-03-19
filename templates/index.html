@@ -39,66 +39,145 @@
         <thead>
         <th>Teams</th>
         <th>Score</th>
-        <th>Record%</th>
-        <th>O/U</th>
+        <th>Away Team Record</th>
+        <th>Over Under</th>
         <th>Spread</th>
-        <th>Win%</th>
+        <th>Chance to win</th>
         <th>Bet</th>
         </thead>
         <tbody id="table-body">
+
+          <tr>
+              <td>Panthers vs Bears</td>
+              <td class="data-string">13-16</td>
+              <td class="numbers">.125</td>
+              <td class="numbers">38.5</td>
+              <td class="numbers">-3</td>
+              <td class="win-percentage" id="win1">57.4%</td>
+              <td class="numbers">$200</td>
+          </tr>
+          <tr>
+              <td>Colts vs Patriots</td>
+              <td class="data-string">10-6</td>
+              <td class="numbers">.4444</td>
+              <td class="numbers">43.5</td>
+              <td class="numbers">-1.5</td>
+              <td class="win-percentage" id="win2">43.4%</td>
+              <td class="numbers">$0</td>
+          </tr>
+          <tr>
+              <td>Browns vs Ravens</td>
+              <td class="data-string">33-31</td>
+              <td class="numbers">.625</td>
+              <td class="numbers">45.5</td>
+              <td class="numbers">-3</td>
+              <td class="win-percentage" id="win3">42.9%</td>
+              <td class="numbers">$0</td>
+          </tr>
+          <tr>
+              <td>Texans vs Bengals</td>
+              <td class="data-string">30-27</td>
+              <td class="numbers">.556</td>
+              <td class="numbers">40.5</td>
+              <td class="numbers">-3</td>
+              <td class="win-percentage" id="win4">34.0%</td>
+              <td class="numbers">$0</td>
+          </tr>
+          <tr>
+              <td>49ers vs Jaguars</td>
+              <td class="data-string">34-3</td>
+              <td class="numbers">.375</td>
+              <td class="numbers">38.5</td>
+              <td class="numbers">-1.5</td>
+              <td class="win-percentage" id="win5">45.8%</td>
+              <td class="numbers">$0</td>
+          </tr>
+          <tr>
+              <td>Saints vs Vikings</td>
+              <td class="data-string">19-27</td>
+              <td class="numbers">.625</td>
+              <td class="numbers">38.5</td>
+              <td class="numbers">-6.5</td>
+              <td class="win-percentage" id="win6">65.2%</td>
+              <td class="numbers">$200</td>
+          </tr>
+          <tr>
+              <td>Packers vs Steelers</td>
+              <td class="data-string">19-23</td>
+              <td class="numbers">.50</td>
+              <td class="numbers">47.0</td>
+              <td class="numbers">-6.5</td>
+              <td class="win-percentage" id="win7">58.6%</td>
+              <td class="numbers">$200</td>
+          </tr>
+          <tr>
+              <td>Titans vs Buccaneers</td>
+              <td class="data-string">6-20</td>
+              <td class="numbers">.375</td>
+              <td class="numbers">38.5</td>
+              <td class="numbers">-3</td>
+              <td class="win-percentage" id="win8">55.5%</td>
+              <td class="numbers">$200</td>
+          </tr>
+          <tr>
+              <td>Falcons vs Cardinals</td>
+              <td class="data-string">23-25</td>
+              <td class="numbers">.4444</td>
+              <td class="numbers">43.5</td>
+              <td class="numbers">-1</td>
+              <td class="win-percentage" id="win9">43.4%</td>
+              <td class="numbers">$0</td>
+          </tr>
+          <tr>
+              <td>Lions vs Chargers</td>
+              <td class="data-string">41-38</td>
+              <td class="numbers">.75</td>
+              <td class="numbers">48.5</td>
+              <td class="numbers">-3</td>
+              <td class="win-percentage" id="win10">34.1%</td>
+              <td class="numbers">$0</td>
+          </tr>
+          <tr>
+              <td>Giants vs Cowboys</td>
+              <td class="data-string">17-49</td>
+              <td class="numbers">.222</td>
+              <td class="numbers">39.5</td>
+              <td class="numbers">-17</td>
+              <td class="win-percentage" id="win11">93.9%</td>
+              <td class="numbers">$200</td>
+          </tr>
+          <tr>
+              <td>Washington vs Seahawks</td>
+              <td class="data-string">26-29</td>
+              <td class="numbers">.444</td>
+              <td class="numbers">44.5</td>
+              <td class="numbers">-6.5</td>
+              <td class="win-percentage" id="win12">66.7%</td>
+              <td class="numbers">$200</td>
+          </tr>
+          <tr>
+              <td>Jets vs Raiders</td>
+              <td class="data-string">12-16</td>
+              <td class="numbers">.50</td>
+              <td class="numbers">36.5</td>
+              <td class="numbers">-1</td>
+              <td class="win-percentage" id="win13">53.1%</td>
+              <td class="numbers">$200</td>
+          </tr>
+          <tr>
+              <td>Broncos vs Bills</td>
+              <td class="data-string">24-22</td>
+              <td class="numbers">.375</td>
+              <td class="numbers">46.5</td>
+              <td class="numbers">-7</td>
+              <td class="win-percentage" id="win14">70.8%</td>
+              <td class="numbers">$200</td>
+          </tr>
           
         </tbody>
     </table>
 </main>
 
-
-  <script>
-    const dataset = [
-        { team: "BAL", score: 17.0, odds: 0.0, overUnder: 33.5, spread: -10.5, winPercentage: 0, bet: 0 },
-      { team: "CHI", score: 6.0, odds: 0.0, overUnder: 33.5, spread: 10.5, winPercentage: 0, bet: 0 },
-        { team: "BAL", score: 31.0, odds: 0.5384615384615384, overUnder: 39.0, spread: -11.0, winPercentage: 0, bet: 0 },
-      { team: "CHI", score: 7.0, odds: 0.38461538461538464, overUnder: 39.0, spread: 11.0, winPercentage: 0, bet: 0 },
-        { team: "BAL", score: 24.0, odds: 0.6, overUnder: 38.5, spread: -6.5, winPercentage: 0, bet: 0 },
-      { team: "CHI", score: 27.0, odds: 0.2, overUnder: 38.5, spread: 6.5, winPercentage: 0, bet: 0 },
-        { team: "BUF", score: 33.0, odds: 0.3333333333333333, overUnder: 46.5, spread: -3.0, winPercentage: 0, bet: 0 },
-      { team: "CHI", score: 27.0, odds: 0.6666666666666666, overUnder: 46.5, spread: 3.0, winPercentage: 0, bet: 0 },
-        { team: "BUF", score: 19.0, odds: 0.0, overUnder: 41.5, spread: -3.0, winPercentage: 0, bet: 0 },
-      { team: "CHI", score: 22.0, odds: 0.5714285714285714, overUnder: 41.5, spread: 3.0, winPercentage: 0, bet: 0 },
-        { team: "BUF", score: 9.0, odds: 0.25, overUnder: 38.0, spread: -10.5, winPercentage: 0, bet: 0 },
-      { team: "CHI", score: 41.0, odds: 0.5714285714285714, overUnder: 38.0, spread: 10.5, winPercentage: 0, bet: 0 },
-        { team: "CIN", score: 0.0, odds: 0.6, overUnder: 36.0, spread: -1.0, winPercentage: 0, bet: 0 },
-      { team: "CHI", score: 24.0, odds: 0.75, overUnder: 36.0, spread: 1.0, winPercentage: 0, bet: 0 },
-        { team: "CIN", score: 45.0, odds: 0.6666666666666666, overUnder: 43.0, spread: -2.0, winPercentage: 0, bet: 0 },
-        { team: "CHI", score: 10.0, odds: 0.6, overUnder: 43.0, spread: 2.0, winPercentage: 0, bet: 0 }
-    ];
-
-  // Function to populate the table
-      function populateTable() {
-          const tableBody = document.getElementById('table-body');
-
-          // Iterate over the dataset and create table rows
-          dataset.forEach(data => {
-              const row = document.createElement('tr');
-
-              // Populate table cells with data
-              row.innerHTML = `
-                  <td>${data.team}</td>
-                  <td class="numbers">${data.score}</td>
-                  <td class="numbers">${data.odds}</td>
-                  <td class="numbers">${data.overUnder}</td>
-                  <td class="numbers">${data.spread}</td>
-                  <td class="win-percentage">${data.winPercentage}%</td>
-                  <td class="numbers">$${data.bet}</td>
-              `;
-
-              // Append the row to the table body
-              tableBody.appendChild(row);
-          });
-      }
-
-      // Call the function to populate the table
-      populateTable();
-  </script>
 
     
   <script>
@@ -121,23 +200,55 @@
           return '#' + ('000000' + h.toString(16)).slice(-6);
       }
 
+
       // Get the win percentage elements
       const win1 = document.getElementById('win1');
       const win2 = document.getElementById('win2');
       const win3 = document.getElementById('win3');
       const win4 = document.getElementById('win4');
+      const win5 = document.getElementById('win5');
+      const win6 = document.getElementById('win6');
+      const win7 = document.getElementById('win7');
+      const win8 = document.getElementById('win8');
+      const win9 = document.getElementById('win9');
+      const win10 = document.getElementById('win10');
+      const win11 = document.getElementById('win11');
+      const win12 = document.getElementById('win12');
+      const win13 = document.getElementById('win13');
+      const win14 = document.getElementById('win14');
 
       // Convert win percentage to number
       const winPercentage1 = parseInt(win1.textContent);
       const winPercentage2 = parseInt(win2.textContent);
       const winPercentage3 = parseInt(win3.textContent);
       const winPercentage4 = parseInt(win4.textContent);
+      const winPercentage5 = parseInt(win5.textContent);
+      const winPercentage6 = parseInt(win6.textContent);
+      const winPercentage7 = parseInt(win7.textContent);
+      const winPercentage8 = parseInt(win8.textContent);
+      const winPercentage9 = parseInt(win9.textContent);
+      const winPercentage10 = parseInt(win10.textContent);
+      const winPercentage11 = parseInt(win11.textContent);
+      const winPercentage12 = parseInt(win12.textContent);
+      const winPercentage13 = parseInt(win13.textContent);
+      const winPercentage14 = parseInt(win14.textContent);
 
       // Change color based on win percentage
       win1.style.color = perc2color(winPercentage1, 0, 100);
       win2.style.color = perc2color(winPercentage2, 0, 100);
       win3.style.color = perc2color(winPercentage3, 0, 100);
       win4.style.color = perc2color(winPercentage4, 0, 100);
+      win5.style.color = perc2color(winPercentage5, 0, 100);
+      win6.style.color = perc2color(winPercentage6, 0, 100);
+      win7.style.color = perc2color(winPercentage7, 0, 100);
+      win8.style.color = perc2color(winPercentage8, 0, 100);
+      win9.style.color = perc2color(winPercentage9, 0, 100);
+      win10.style.color = perc2color(winPercentage10, 0, 100);
+      win11.style.color = perc2color(winPercentage11, 0, 100);
+      win12.style.color = perc2color(winPercentage12, 0, 100);
+      win13.style.color = perc2color(winPercentage13, 0, 100);
+      win14.style.color = perc2color(winPercentage14, 0, 100);
+    
   </script>
 
 
