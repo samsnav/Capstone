@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+    <title>NFL Machine Learning Picks</title>
+    <style>
+        .green {color: green}
+        .red {color: red}
+        td {padding: 2px;}
+        td.numbers { width: 40px; text-align: right;}
+        th, td {border: 1px solid black;} 
+        table {margin-bottom: 6px;}
+        th {text-align: center;}
+        td {text-align: center;}
+        h1 {
+            color: white; 
+        }
+
+
+    </style>
+</head>
+<body>
+<main class="container">
+    <h1>NFL StatBets</h1>
+  <form role="form" method='POST' action='/' id="login">
+    <div class="form-group">
+      <input type="text" name="url" class="form-control" id="username" placeholder="username" style="max-width: 300px;" autofocus required>
+      <input type="text" name="url" class="form-control" id="psswd" placeholder="password" style="max-width: 300px;" autofocus required>
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+
+</main>
+
+
+<script>
+  var logged_in_users = {'samsnav': '123', 'ronzon': '456'};
+  document.getElementById('login').addEventListener('submit', function(event) {
+      event.preventDefault();
+      var username = document.getElementById('username').value;
+      var password = document.getElementById('psswd').value;
+      if (logged_in_users.hasOwnProperty(username) && logged_in_users[username] === password) {
+          
+          window.location.href = "/home";
+      } else {
+          
+      }
+  });
+    
+</script>

@@ -30,7 +30,11 @@ from sklearn.model_selection import ShuffleSplit
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route('/login')
+def new_tab():
+    return render_template('login.html')
+
+@app.route('/home')
 def index():
     return render_template('index.html')
 
