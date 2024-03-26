@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en" data-theme="dark">
 <head>
@@ -35,6 +36,20 @@
 <main class="container">
     <h1>NFL StatBets</h1>
     <h2>Machine Learning Picks Via Fanduel</h2>
+    <form role="form" method='POST' action='/' id="myForm">
+      <div class="form-group">
+        <input type="text" name="url" class="form-control" id="url-box" placeholder="Enter Bankroll" style="max-width: 200px;" autofocus required>
+      </div>
+      <style>
+          .small-button {
+              padding: 5px 10px; 
+              font-size: 12px; 
+              max-width: 200px;
+              background-color: green;
+          }
+      </style>
+    <button type="submit" class="btn btn-default small-button">Submit</button>
+    </form>
     <table role="grid">
         <thead>
         <th>Teams</th>
@@ -46,7 +61,7 @@
         <th>Bet</th>
         </thead>
         <tbody id="table-body">
-
+          
           <tr>
               <td>Panthers vs Bears</td>
               <td class="data-string">13-16</td>
@@ -54,7 +69,7 @@
               <td class="numbers">38.5</td>
               <td class="numbers">-3</td>
               <td class="win-percentage" id="win1">57.4%</td>
-              <td class="numbers">$200</td>
+              <td class="bet-cell">$0</td>
           </tr>
           <tr>
               <td>Colts vs Patriots</td>
@@ -63,7 +78,7 @@
               <td class="numbers">43.5</td>
               <td class="numbers">-1.5</td>
               <td class="win-percentage" id="win2">43.4%</td>
-              <td class="numbers">$0</td>
+              <td class="bet-cell">$0</td>
           </tr>
           <tr>
               <td>Browns vs Ravens</td>
@@ -72,7 +87,7 @@
               <td class="numbers">45.5</td>
               <td class="numbers">-3</td>
               <td class="win-percentage" id="win3">42.9%</td>
-              <td class="numbers">$0</td>
+              <td class="bet-cell">$0</td>
           </tr>
           <tr>
               <td>Texans vs Bengals</td>
@@ -81,7 +96,7 @@
               <td class="numbers">40.5</td>
               <td class="numbers">-3</td>
               <td class="win-percentage" id="win4">34.0%</td>
-              <td class="numbers">$0</td>
+              <td class="bet-cell">$0</td>
           </tr>
           <tr>
               <td>49ers vs Jaguars</td>
@@ -90,7 +105,7 @@
               <td class="numbers">38.5</td>
               <td class="numbers">-1.5</td>
               <td class="win-percentage" id="win5">45.8%</td>
-              <td class="numbers">$0</td>
+              <td class="bet-cell">$0</td>
           </tr>
           <tr>
               <td>Saints vs Vikings</td>
@@ -99,7 +114,7 @@
               <td class="numbers">38.5</td>
               <td class="numbers">-6.5</td>
               <td class="win-percentage" id="win6">65.2%</td>
-              <td class="numbers">$200</td>
+              <td class="bet-cell">$0</td>
           </tr>
           <tr>
               <td>Packers vs Steelers</td>
@@ -108,7 +123,7 @@
               <td class="numbers">47.0</td>
               <td class="numbers">-6.5</td>
               <td class="win-percentage" id="win7">58.6%</td>
-              <td class="numbers">$200</td>
+              <td class="bet-cell">$0</td>
           </tr>
           <tr>
               <td>Titans vs Buccaneers</td>
@@ -117,7 +132,7 @@
               <td class="numbers">38.5</td>
               <td class="numbers">-3</td>
               <td class="win-percentage" id="win8">55.5%</td>
-              <td class="numbers">$200</td>
+              <td class="bet-cell">$0</td>
           </tr>
           <tr>
               <td>Falcons vs Cardinals</td>
@@ -126,7 +141,7 @@
               <td class="numbers">43.5</td>
               <td class="numbers">-1</td>
               <td class="win-percentage" id="win9">43.4%</td>
-              <td class="numbers">$0</td>
+              <td class="bet-cell">$0</td>
           </tr>
           <tr>
               <td>Lions vs Chargers</td>
@@ -135,7 +150,7 @@
               <td class="numbers">48.5</td>
               <td class="numbers">-3</td>
               <td class="win-percentage" id="win10">34.1%</td>
-              <td class="numbers">$0</td>
+              <td class="bet-cell">$0</td>
           </tr>
           <tr>
               <td>Giants vs Cowboys</td>
@@ -144,7 +159,7 @@
               <td class="numbers">39.5</td>
               <td class="numbers">-17</td>
               <td class="win-percentage" id="win11">93.9%</td>
-              <td class="numbers">$200</td>
+              <td class="bet-cell">$0</td>
           </tr>
           <tr>
               <td>Washington vs Seahawks</td>
@@ -153,7 +168,7 @@
               <td class="numbers">44.5</td>
               <td class="numbers">-6.5</td>
               <td class="win-percentage" id="win12">66.7%</td>
-              <td class="numbers">$200</td>
+              <td class="bet-cell">$0</td>
           </tr>
           <tr>
               <td>Jets vs Raiders</td>
@@ -162,7 +177,7 @@
               <td class="numbers">36.5</td>
               <td class="numbers">-1</td>
               <td class="win-percentage" id="win13">53.1%</td>
-              <td class="numbers">$200</td>
+              <td class="bet-cell">$0</td>
           </tr>
           <tr>
               <td>Broncos vs Bills</td>
@@ -171,15 +186,40 @@
               <td class="numbers">46.5</td>
               <td class="numbers">-7</td>
               <td class="win-percentage" id="win14">70.8%</td>
-              <td class="numbers">$200</td>
+              <td class="bet-cell">$0</td>
           </tr>
-          
+
         </tbody>
     </table>
 </main>
 
+  <script>
+      // Add event listener to form submission
+      document.getElementById('myForm').addEventListener('submit', function(event) {
+          event.preventDefault();
+          // Retrieve the value from the text box
+          var textBoxValue = document.getElementById('url-box').value;
+          console.log("Text Box Value: " + textBoxValue);
 
-    
+          // Update the "Bet" column for each row in the table
+          var tableRows = document.getElementById('table-body').getElementsByTagName('tr');
+          for (var i = 0; i < tableRows.length; i++) {
+              var row = tableRows[i];
+              // Generate a unique ID for each row (e.g., 'row1', 'row2', ...)
+              var rowId = 'row' + (i + 1);
+              row.id = rowId;
+              // Update the "Bet" column for the current row with the value from the text box
+              if (parseFloat(row.querySelector('.win-percentage').textContent) > 50) {
+                var percent = parseFloat(row.querySelector('.win-percentage').textContent)
+                var betValue = (textBoxValue / 16) * (percent / 100);
+                var roundedBetValue = betValue.toFixed(2);
+                row.querySelector('.bet-cell').textContent = '$' + roundedBetValue;
+              }
+          }
+      });
+  </script>
+
+
   <script>
       function perc2color(perc, min, max) {
           var base = (max - min);
@@ -248,11 +288,10 @@
       win12.style.color = perc2color(winPercentage12, 0, 100);
       win13.style.color = perc2color(winPercentage13, 0, 100);
       win14.style.color = perc2color(winPercentage14, 0, 100);
-    
+
   </script>
 
 
-  
+
 </body>
 </html>
-        
