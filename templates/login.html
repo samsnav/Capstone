@@ -42,10 +42,10 @@
       var username = document.getElementById('username').value;
       var password = document.getElementById('psswd').value;
       if (logged_in_users.hasOwnProperty(username) && logged_in_users[username] === password) {
-          
+          alert('Success');
           window.location.href = "/home";
       } else {
-          
+          alert('Invalid username or password');
       }
   });
     

@@ -41,7 +41,7 @@
     <h2>Machine Learning Picks Via Fanduel</h2>
     <form role="form" method='POST' action='/' id="myForm">
       <div class="form-group">
-        <input type="text" name="url" class="form-control" id="url-box" placeholder="Enter Bankroll" style="max-width: 200px;" autofocus required>
+        <input type="text" name="url" class="form-control" id="bank-box" placeholder="Enter Bankroll" style="max-width: 200px;" autofocus required>
       </div>
       <style>
           .small-button {
@@ -188,7 +188,7 @@
               <td class="numbers">.375</td>
               <td class="numbers">46.5</td>
               <td class="numbers">-7</td>
-              <td class="win-percentage" id="win14">-5%</td>
+              <td class="win-percentage" id="win14">85%</td>
               <td class="bet-cell">$0</td>
           </tr>
 
@@ -201,24 +201,28 @@
       document.getElementById('myForm').addEventListener('submit', function(event) {
           event.preventDefault();
           // Retrieve the value from the text box
-          var textBoxValue = document.getElementById('url-box').value;
-          console.log("Text Box Value: " + textBoxValue);
-
-          // Update the "Bet" column for each row in the table
-          var tableRows = document.getElementById('table-body').getElementsByTagName('tr');
-          for (var i = 0; i < tableRows.length; i++) {
-              var row = tableRows[i];
-              // Generate a unique ID for each row (e.g., 'row1', 'row2', ...)
-              var rowId = 'row' + (i + 1);
-              row.id = rowId;
-              // Update the "Bet" column for the current row with the value from the text box
-              if (parseFloat(row.querySelector('.win-percentage').textContent) > 50) {
-                var percent = parseFloat(row.querySelector('.win-percentage').textContent)
-                var betValue = (textBoxValue / 16) * (percent / 100);
-                var roundedBetValue = betValue.toFixed(2);
-                row.querySelector('.bet-cell').textContent = '$' + roundedBetValue;
-              }
+          var textBoxValue = document.getElementById('bank-box').value;
+          var numberValue = parseFloat(textBoxValue); 
+          if (!isNaN(numberValue) && numberValue > 0) {
+            var tableRows = document.getElementById('table-body').getElementsByTagName('tr');
+            for (var i = 0; i < tableRows.length; i++) {
+                var row = tableRows[i];
+                // Generate a unique ID for each row (e.g., 'row1', 'row2', ...)
+                var rowId = 'row' + (i + 1);
+                row.id = rowId;
+                // Update the "Bet" column for the current row with the value from the text box
+                if (parseFloat(row.querySelector('.win-percentage').textContent) > 50) {
+                  var percent = parseFloat(row.querySelector('.win-percentage').textContent)
+                  var betValue = (textBoxValue / 16) * (percent / 100);
+                  var roundedBetValue = betValue.toFixed(2);
+                  row.querySelector('.bet-cell').textContent = '$' + roundedBetValue;
+                }
+            }
+          } else {
+              alert('Please enter a valid positive number.');
           }
+          
+          
       });
   </script>
 
